@@ -1,38 +1,69 @@
+fun properties(key: String) = (project.findProperty(key) ?: "") as String
+
 plugins {
-	java
-	war
-	id("org.springframework.boot") version "3.3.0-SNAPSHOT"
+	id("java")
+	id("org.springframework.boot") version "3.3.0-SNAPSHOT" apply false
 	id("io.spring.dependency-management") version "1.1.4"
 }
 
-group = "com.woo"
-version = "0.0.1-SNAPSHOT"
+subprojects {
+	group = "com.woo"
+	java.sourceCompatibility = JavaVersion.VERSION_17
 
-java {
-	sourceCompatibility = JavaVersion.VERSION_17
-}
-
-configurations {
-	compileOnly {
-		extendsFrom(configurations.annotationProcessor.get())
+	tasks {
+		jar {
+			enabled = false
+		}
 	}
-}
 
-repositories {
-	mavenCentral()
-	maven { url = uri("https://repo.spring.io/milestone") }
-	maven { url = uri("https://repo.spring.io/snapshot") }
-}
+	configurations {
+		all {
+			resolutionStrategy.cacheChangingModulesFor(0, TimeUnit.SECONDS)
+		}
+		compileOnly {
+			extendsFrom(configurations.annotationProcessor.get())
+		}
+	}
 
-dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-web")
-	compileOnly("org.projectlombok:lombok")
-	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-	annotationProcessor("org.projectlombok:lombok")
-	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
-}
+	repositories {
+		mavenCentral()
+		maven { url = uri("https://repo.spring.io/milestone") }
+		maven { url = uri("https://repo.spring.io/snapshot") }
+	}
 
-tasks.withType<Test> {
-	useJUnitPlatform()
+	dependencies {
+		compileOnly("org.projectlombok:lombok")
+		annotationProcessor("org.projectlombok:lombok")
+		testCompileOnly("org.projectlombok:lombok")
+		testAnnotationProcessor("org.projectlombok:lombok")
+
+		// "@ConfigurationProperties"를 사용하기 위한 의존성
+		annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+	}
+
+	tasks.named("compileJava") {
+		inputs.files(tasks.named("processResources"))
+	}
+
+	// generated 파일 위치를 src/main/generated 로 고정
+	tasks.withType<JavaCompile>().configureEach {
+		options.generatedSourceOutputDirectory.set(file("$projectDir/src/main/generated/"))
+	}
+
+	tasks.withType<Test> {
+		useJUnitPlatform()
+	}
+
+	tasks.withType<Wrapper> {
+		gradleVersion = properties("gradleVersion")
+	}
+
+	tasks.named("clean") {
+		doLast {
+			// clean-up directory when necessary
+			file("$projectDir/src/main/generated/").deleteRecursively()
+			file("$projectDir/src/test/generated_tests/").deleteRecursively()
+			file("$projectDir/out").deleteRecursively()
+		}
+	}
 }

@@ -5,7 +5,7 @@ plugins {
 	id("java-test-fixtures")
 }
 
-description = "Spring boot starter for HATs"
+description = "Spring boot starter for progress"
 
 tasks {
 	bootJar {

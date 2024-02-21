@@ -1,10 +1,10 @@
-package com.woo.progressstarter;
+package com.woo.progress;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ProgressStarterApplicationTests {
+class ProgressApiApplicationTests {
 
 	@Test
 	void contextLoads() {

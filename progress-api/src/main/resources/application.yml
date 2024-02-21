@@ -1,0 +1,24 @@
+### default profile
+spring.profiles.active: local
+
+### server
+server:
+  shutdown: graceful
+  forward-headers-strategy: framework
+
+### management
+management.tracing.enabled: true
+management.tracing.sampling.probability: 1.0
+management.endpoints.web.exposure.include: health,info
+management.endpoint.health.show-details: never
+
+### application
+spring.application:
+  name: progress-api
+
+### autoconfigure exclude
+spring.autoconfigure.exclude:
+  - org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinAutoConfiguration
+
+#### logging import
+logging.config: classpath:logging/logback-${spring.profiles.active}.xml

@@ -28,7 +28,7 @@ class WooLoggingAutoConfigurationTest {
     void 로깅필터_빈이_존재하면_빈을_생성하지_않는다() {
 
         this.contextRunner
-                .withBean("mockHntLoggingFilter", LoggingFilter.class, () -> mock(LoggingFilter.class))
+                .withBean("mockWooLoggingFilter", LoggingFilter.class, () -> mock(LoggingFilter.class))
                 .run(context -> {
                     assertThat(context).getBeans(LoggingFilter.class).hasSize(1);
                     assertThat(context).getBean("loggingFilter").isNull();

@@ -10,14 +10,14 @@ import com.querydsl.core.types.Path;
 
 
 /**
- * QUser is a Querydsl query type for User
+ * QUserTemp is a Querydsl query type for UserTemp
  */
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
-public class QUser extends EntityPathBase<User> {
+public class QUserTemp extends EntityPathBase<UserTemp> {
 
-    private static final long serialVersionUID = 1427447058L;
+    private static final long serialVersionUID = 1550056454L;
 
-    public static final QUser user = new QUser("user");
+    public static final QUserTemp userTemp = new QUserTemp("userTemp");
 
     public final StringPath id = createString("id");
 
@@ -29,16 +29,16 @@ public class QUser extends EntityPathBase<User> {
 
     public final EnumPath<com.woo.progress.constance.type.Role> role = createEnum("role", com.woo.progress.constance.type.Role.class);
 
-    public QUser(String variable) {
-        super(User.class, forVariable(variable));
+    public QUserTemp(String variable) {
+        super(UserTemp.class, forVariable(variable));
     }
 
-    public QUser(Path<? extends User> path) {
+    public QUserTemp(Path<? extends UserTemp> path) {
         super(path.getType(), path.getMetadata());
     }
 
-    public QUser(PathMetadata metadata) {
-        super(User.class, metadata);
+    public QUserTemp(PathMetadata metadata) {
+        super(UserTemp.class, metadata);
     }
 
 }

@@ -1,7 +1,7 @@
 package com.woo.progress.controller;
 
 import com.woo.progress.constance.type.Role;
-import com.woo.progress.repository.User;
+import com.woo.progress.repository.UserTemp;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -19,8 +19,8 @@ public class UserDto {
 
     private Role role;
 
-    public User toEntity() {
-        return User.builder()
+    public UserTemp toEntity() {
+        return UserTemp.builder()
                 .key(key)
                 .id(id)
                 .name(name)

@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "KB_USER")
-public class User {
+public class UserTemp {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -33,6 +33,12 @@ dependencies {
 	annotationProcessor("jakarta.persistence:jakarta.persistence-api")// java.lang.NoClassDefFoundError(javax.annotation.Entity) 발생 대응
 	annotationProcessor("jakarta.annotation:jakarta.annotation-api")// java.lang.NoClassDefFoundError (javax.annotation.Generated) 발생 대응
 
+	// 임시로 여기에두고 추후 starter로 이관
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("io.jsonwebtoken:jjwt-api:0.11.5")
+	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
+	runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
+
 	// test
 	testImplementation(testFixtures(project(":progress-starter")))
 }

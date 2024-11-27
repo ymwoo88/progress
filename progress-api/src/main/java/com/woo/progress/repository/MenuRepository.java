@@ -1,6 +1,6 @@
 package com.woo.progress.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import com.woo.progress.repository.entities.Menu;
 import org.springframework.data.repository.CrudRepository;
 
 public interface MenuRepository extends CrudRepository<Menu, Long> {

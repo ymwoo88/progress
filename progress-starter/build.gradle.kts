@@ -37,6 +37,7 @@ dependencies {
 	api("net.logstash.logback:logstash-logback-encoder:7.4")
 	api("io.netty:netty-resolver-dns-native-macos:4.1.94.Final:osx-aarch_64")
 	api("io.hypersistence:hypersistence-utils-hibernate-62:3.6.0")
+	api("mysql:mysql-connector-java:8.0.33")
 //	api("software.amazon.awssdk:s3")
 //	api("org.apache.commons:commons-collections4")
 

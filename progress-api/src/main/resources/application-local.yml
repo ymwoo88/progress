@@ -9,3 +9,14 @@ application:
       refresh-token:
         expiration: 1296000000 # 15 days in ms
         cookie-name: refresh-jwt-cookie
+
+spring:
+  jpa:
+    database: mysql
+    hibernate.ddl-auto: update
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lcms?serverTimezone=Asia/Seoul
+    username: root
+    password: Admin:1234

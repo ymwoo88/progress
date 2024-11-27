@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.woo.progress.repository.entities.Menu;
 
 
 /**
@@ -19,7 +20,9 @@ public class QMenu extends EntityPathBase<Menu> {
 
     public static final QMenu menu = new QMenu("menu");
 
-    public final StringPath id = createString("id");
+    public final StringPath code = createString("code");
+
+    public final NumberPath<Integer> depth = createNumber("depth", Integer.class);
 
     public final NumberPath<Long> key = createNumber("key", Long.class);
 

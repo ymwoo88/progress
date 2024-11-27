@@ -21,4 +21,32 @@ spring.autoconfigure.exclude:
   - org.springframework.boot.actuate.autoconfigure.tracing.zipkin.ZipkinAutoConfiguration
 
 #### logging import
-logging.config: classpath:logging/logback-${spring.profiles.active}.xml
+woo.logging.config: classpath:logging/logback-${spring.profiles.active}.xml### datasource
+
+### datasource
+woo.datasource:
+  default:
+    write:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/lcms?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      username: root
+      password: Admin:1234
+      hikari:
+        pool-name: WRITE-POOL
+        minimum-idle: 5
+        maximum-pool-size: 100
+        max-lifetime: 28800000
+        keepalive-time: 60000
+        idle-timeout: 600000
+    read:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:log4jdbc:mysql://localhost:3306/lcms?useSSL=false&allowPublicKeyRetrieval=true&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
+      username: root
+      password: Admin:1234
+      hikari:
+        pool-name: READ-POOL
+        minimum-idle: 5
+        maximum-pool-size: 100
+        max-lifetime: 28800000
+        keepalive-time: 60000
+        idle-timeout: 600000

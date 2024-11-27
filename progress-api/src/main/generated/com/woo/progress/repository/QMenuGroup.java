@@ -7,6 +7,8 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+import com.woo.progress.repository.entities.MenuGroup;
 
 
 /**
@@ -17,26 +19,35 @@ public class QMenuGroup extends EntityPathBase<MenuGroup> {
 
     private static final long serialVersionUID = -1070794887L;
 
-    public static final QMenuGroup menuGroup = new QMenuGroup("menuGroup");
+    private static final PathInits INITS = PathInits.DIRECT2;
 
-    public final StringPath id = createString("id");
+    public static final QMenuGroup menuGroup = new QMenuGroup("menuGroup");
 
     public final NumberPath<Long> key = createNumber("key", Long.class);
 
-    public final NumberPath<Long> menuId = createNumber("menuId", Long.class);
+    public final QMenu menu;
 
     public final StringPath name = createString("name");
 
     public QMenuGroup(String variable) {
-        super(MenuGroup.class, forVariable(variable));
+        this(MenuGroup.class, forVariable(variable), INITS);
     }
 
     public QMenuGroup(Path<? extends MenuGroup> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
     public QMenuGroup(PathMetadata metadata) {
-        super(MenuGroup.class, metadata);
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QMenuGroup(PathMetadata metadata, PathInits inits) {
+        this(MenuGroup.class, metadata, inits);
+    }
+
+    public QMenuGroup(Class<? extends MenuGroup> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.menu = inits.isInitialized("menu") ? new QMenu(forProperty("menu")) : null;
     }
 
 }

@@ -1,4 +1,4 @@
-package com.woo.progress.config.security.enums;
+package com.woo.progress.enums;
 
 public enum Privilege {
     READ_PRIVILEGE,

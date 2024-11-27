@@ -1,9 +1,9 @@
-package com.woo.progress.config.security.service;
+package com.woo.progress.service;
 
 
-import com.woo.progress.config.security.payload.request.AuthenticationRequest;
-import com.woo.progress.config.security.payload.request.RegisterRequest;
-import com.woo.progress.config.security.payload.response.AuthenticationResponse;
+import com.woo.progress.controller.payload.request.AuthenticationRequest;
+import com.woo.progress.controller.payload.request.RegisterRequest;
+import com.woo.progress.controller.payload.response.AuthenticationResponse;
 
 public interface AuthenticationService {
     AuthenticationResponse register(RegisterRequest request);

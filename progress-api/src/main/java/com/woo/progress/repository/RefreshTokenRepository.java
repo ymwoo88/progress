@@ -1,6 +1,6 @@
-package com.woo.progress.config.security.repository;
+package com.woo.progress.repository;
 
-import com.woo.progress.config.security.entities.RefreshToken;
+import com.woo.progress.repository.entities.RefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

@@ -1,4 +1,4 @@
-package com.woo.progress.config.security.payload.response;
+package com.woo.progress.controller.payload.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

@@ -1,13 +1,13 @@
-package com.woo.progress.config.security.controller;
+package com.woo.progress.controller;
 
-import com.woo.progress.config.security.payload.request.AuthenticationRequest;
-import com.woo.progress.config.security.payload.request.RefreshTokenRequest;
-import com.woo.progress.config.security.payload.request.RegisterRequest;
-import com.woo.progress.config.security.payload.response.AuthenticationResponse;
-import com.woo.progress.config.security.payload.response.RefreshTokenResponse;
-import com.woo.progress.config.security.service.AuthenticationService;
-import com.woo.progress.config.security.service.JwtService;
-import com.woo.progress.config.security.service.RefreshTokenService;
+import com.woo.progress.controller.payload.request.AuthenticationRequest;
+import com.woo.progress.controller.payload.request.RefreshTokenRequest;
+import com.woo.progress.controller.payload.request.RegisterRequest;
+import com.woo.progress.controller.payload.response.AuthenticationResponse;
+import com.woo.progress.controller.payload.response.RefreshTokenResponse;
+import com.woo.progress.service.AuthenticationService;
+import com.woo.progress.service.JwtService;
+import com.woo.progress.service.RefreshTokenService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

@@ -1,8 +1,8 @@
-package com.woo.progress.config.security.service;
+package com.woo.progress.service;
 
-import com.woo.progress.config.security.entities.RefreshToken;
-import com.woo.progress.config.security.payload.request.RefreshTokenRequest;
-import com.woo.progress.config.security.payload.response.RefreshTokenResponse;
+import com.woo.progress.repository.entities.RefreshToken;
+import com.woo.progress.controller.payload.request.RefreshTokenRequest;
+import com.woo.progress.controller.payload.response.RefreshTokenResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseCookie;
 

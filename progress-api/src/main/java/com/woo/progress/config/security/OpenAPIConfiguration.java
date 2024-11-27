@@ -1,11 +1,5 @@
-package com.woo.progress.config.security.config;
+package com.woo.progress.config.security;
 
-
-import com.woo.progress.config.security.handlers.ErrorResponse;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-import java.lang.reflect.AnnotatedType;
 
 //@Configuration
 //@OpenAPIDefinition(

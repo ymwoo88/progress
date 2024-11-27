@@ -1,6 +1,6 @@
-package com.woo.progress.config.security.service.impl;
+package com.woo.progress.service.impl;
 
-import com.woo.progress.config.security.service.JwtService;
+import com.woo.progress.service.JwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

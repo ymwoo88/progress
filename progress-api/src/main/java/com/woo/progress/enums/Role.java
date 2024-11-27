@@ -1,4 +1,4 @@
-package com.woo.progress.config.security.enums;
+package com.woo.progress.enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.woo.progress.config.security.enums.Privilege.*;
+import static com.woo.progress.enums.Privilege.*;
 
 @Getter
 @RequiredArgsConstructor

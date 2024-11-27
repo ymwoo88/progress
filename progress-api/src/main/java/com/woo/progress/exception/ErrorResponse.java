@@ -1,4 +1,4 @@
-package com.woo.progress.config.security.handlers;
+package com.woo.progress.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

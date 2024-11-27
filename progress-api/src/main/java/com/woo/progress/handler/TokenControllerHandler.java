@@ -1,8 +1,9 @@
-package com.woo.progress.config.security.handlers;
+package com.woo.progress.handler;
 
 
-import com.woo.progress.config.security.enums.Role;
-import com.woo.progress.config.security.exception.TokenException;
+import com.woo.progress.enums.Role;
+import com.woo.progress.exception.ErrorResponse;
+import com.woo.progress.exception.TokenException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;

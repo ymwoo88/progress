@@ -1,4 +1,4 @@
-package com.woo.progress.repository;
+package com.woo.progress.repository.entities;
 
 import jakarta.persistence.*;
 import lombok.*;

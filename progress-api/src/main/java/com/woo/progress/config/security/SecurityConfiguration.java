@@ -1,4 +1,4 @@
-package com.woo.progress.config.security.config;
+package com.woo.progress.config.security;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

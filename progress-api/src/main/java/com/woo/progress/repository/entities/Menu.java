@@ -34,4 +34,7 @@ public class Menu {
 
     @Column(name = "depth")
     private Integer depth;
+
+    @Column(name = "path")
+    private String path;
 }

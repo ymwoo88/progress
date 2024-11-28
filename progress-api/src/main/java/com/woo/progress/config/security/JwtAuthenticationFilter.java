@@ -1,12 +1,17 @@
 package com.woo.progress.config.security;
 
+import com.woo.progress.controller.payload.response.MenuGroupResponse;
+import com.woo.progress.repository.entities.Menu;
+import com.woo.progress.repository.entities.User;
 import com.woo.progress.service.JwtService;
+import com.woo.progress.service.MenuGroupService;
 import io.micrometer.common.util.StringUtils;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.apache.logging.log4j.util.Strings;
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
@@ -18,6 +23,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Our jwt class extends OnePerRequestFilter to be executed on every http request
@@ -29,6 +35,7 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtService jwtService;
+    private final MenuGroupService menuGroupService;
     private final UserDetailsService userDetailsService;
 
     /**
@@ -65,6 +72,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(loginId);
             if (jwtService.isTokenValid(jwt, userDetails)) {
+                // menu auth check
+                User user = (User) userDetails;
+                MenuGroupResponse menuGroupResponse = menuGroupService.get(user.getMenuGroupName());
+                List<String> menuPathList = menuGroupResponse.getMenuList().stream().map(Menu::getPath).toList();
+                if (!menuPathList.contains(request.getServletPath())) {
+                    filterChain.doFilter(request, response);
+                    return;
+                }
+
                 //update the spring security context by adding a new UsernamePasswordAuthenticationToken
                 SecurityContext context = SecurityContextHolder.createEmptyContext();
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(

@@ -1,4 +1,4 @@
-package com.woo.progress.config.security.entities;
+package com.woo.progress.repository.entities;
 
 import static com.querydsl.core.types.PathMetadataFactory.*;
 
@@ -8,7 +8,6 @@ import com.querydsl.core.types.PathMetadata;
 import javax.annotation.processing.Generated;
 import com.querydsl.core.types.Path;
 import com.querydsl.core.types.dsl.PathInits;
-import com.woo.progress.repository.entities.RefreshToken;
 
 
 /**
@@ -17,7 +16,7 @@ import com.woo.progress.repository.entities.RefreshToken;
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
 public class QRefreshToken extends EntityPathBase<RefreshToken> {
 
-    private static final long serialVersionUID = 164621772L;
+    private static final long serialVersionUID = 1973597892L;
 
     private static final PathInits INITS = PathInits.DIRECT2;
 

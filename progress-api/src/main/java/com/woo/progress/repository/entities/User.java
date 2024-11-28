@@ -1,5 +1,6 @@
 package com.woo.progress.repository.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.woo.progress.enums.Role;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,7 +29,10 @@ public class User implements UserDetails { // make our app User a spring securit
     private String enName;
     private String userName;
     private String userId;
+    @JsonIgnore
     private String password;
+    private String email;
+    private String menuGroupName;
 
     @Enumerated(EnumType.STRING)
     private Role role;
